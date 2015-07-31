@@ -2,7 +2,9 @@ __author__ = 'jrmccormick'
 
 import numpy as np
 import matplotlib.pyplot as plt
-from ..common.integrate import integrate
+
+from motion_capturing.integrate import integrate
+
 
 def read_datafile(filename):
     X = []
