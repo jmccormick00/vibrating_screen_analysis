@@ -1,20 +1,7 @@
 __author__ = 'jr'
 import numpy as np
 import matplotlib.pyplot as plt
-
-
-def integrate(accel, T):
-    fft_a = np.fft.fft(accel)
-    n = len(fft_a)
-    half_n = np.ceil(n/2.0)
-    freq = np.fft.fftfreq(n, T)
-    fft_a_fold = (2.0 / n) * fft_a[:half_n]
-    freq_fold = freq[:half_n]
-    w = 2*np.pi*freq
-    fft_x = fft_a / (-w*w)
-    fft_x[0] = 0.0001
-    x = np.fft.ifft(fft_x)
-    return x, freq_fold, fft_a_fold
+from ..common.integrate import integrate
 
 
 def main():
