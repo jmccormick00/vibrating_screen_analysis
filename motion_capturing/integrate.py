@@ -39,6 +39,7 @@ def integrate(acceleration, T):
 
     # Fourth - calculate omega and divide fft by -omega^2
     w = 2*np.pi*freq
+    w[0] = 0.00001 # make sure the first value isnt zero
     fft_x = fft_a / (-w*w)
     fft_x[0] = 0.0001  # make sure the first value isnt zero
 
