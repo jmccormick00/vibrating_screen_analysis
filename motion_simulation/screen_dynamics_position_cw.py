@@ -1,7 +1,7 @@
 __author__ = 'jrmccormick'
 
 # Imports ======================================
-import screen
+import screen_old
 import numpy as np
 import scipy.integrate
 from matplotlib import pyplot as plt
@@ -12,9 +12,9 @@ from matplotlib import gridspec
 # Screen moment of inertia
 J0 = 16297 #84153.8 #slugs*ft^2
 # ===================================================
-sc = screen.screen(weight=22100, momentInertia=J0, alpha=0.0, feedSpringPos=(-8.0, 0.0), dischargeSpringPos=(8.0, 0.0),
+sc = screen_old.screen(weight=22100, momentInertia=J0, alpha=0.0, feedSpringPos=(-8.0, 0.0), dischargeSpringPos=(8.0, 0.0),
                    feedSpringStiff=(32763, 32763), dischargeSpringStiff=(32736, 32736))
-cw1 = screen.counterweight(posX=0, posY=0, radius=0.5, weight=257.8, rpm=200, startAngle=270, counterclockwise=False)
+cw1 = screen_old.counterweight(posX=0, posY=0, radius=0.5, weight=257.8, rpm=200, startAngle=270, counterclockwise=False)
 #cw2=screen.counterweight(posX=0,posY=0, radius=0.5, weight=160, rpm=200, startAngle=270-90, counterclockwise=False)
 #cw3=screen.counterweight(posX=0,posY=0, radius=0.5, weight=160, rpm=200, startAngle=270, counterclockwise=True)
 

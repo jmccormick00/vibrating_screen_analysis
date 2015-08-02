@@ -2,7 +2,6 @@ __author__ = 'jrmccormick'
 
 import numpy as np
 
-
 class counterweight:
     def __init__(self, posX, posY, radius, weight, rpm, startAngle, counterclockwise):
         '''
@@ -27,7 +26,7 @@ class counterweight:
             self.omega=-self.omega
 
 
-    def calculate_forces(self, t):
+    def calculateForces(self, t):
         '''
         :param t: A single time or an array of the time instances to use to solve the forces
         Stores the x and y values of the forces in fx and fy and calculates the resultant forces, fr
@@ -66,7 +65,7 @@ class screen:
     def addCounterWeight(self, cw):
         self.cwArr.append(cw)
 
-    def calculate_acceleration(self, state, t):
+    def update(self, state, t):
         X0 = state[0]
         dX0 = state[1]
         Y0 = state[2]

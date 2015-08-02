@@ -1,12 +1,12 @@
 __author__ = 'jrmccormick'
 
-import screen
+import screen_old
 import numpy as np
 from matplotlib import pyplot as plt
 from matplotlib import gridspec
 
-cw1=screen.counterweight(posX=1.5,posY=-2, radius=0.5, weight=160, rpm=800, startAngle=270, counterclockwise=True)
-cw2=screen.counterweight(posX=-2.95,posY=2.21, radius=0.5, weight=160, rpm=800, startAngle=270-90, counterclockwise=False)
+cw1=screen_old.counterweight(posX=1.5,posY=-2, radius=0.5, weight=160, rpm=800, startAngle=270, counterclockwise=True)
+cw2=screen_old.counterweight(posX=-2.95,posY=2.21, radius=0.5, weight=160, rpm=800, startAngle=270-90, counterclockwise=False)
 
 cwArr=[cw1,cw2]
 dt=.01
