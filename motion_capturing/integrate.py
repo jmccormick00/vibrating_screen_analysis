@@ -42,7 +42,7 @@ def integrate(acceleration, T):
     if w[0] == 0:
         w[0] = 0.00001 # make sure the first value isnt zero
     fft_x = fft_a / (-w*w)
-    fft_x[0] = 0.0001  # make sure the first value isnt zero
+    fft_x[0] = complex(0.000001, 0.0000001)  # make sure the first value isnt zero
 
     # Fifth - Convert the new fft_x vector back into time domain using an inverse
     # Fourier transform and return the displacement, frequencies, and amplitudes
