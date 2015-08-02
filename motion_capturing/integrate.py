@@ -47,4 +47,4 @@ def integrate(acceleration, T):
     # Fifth - Convert the new fft_x vector back into time domain using an inverse
     # Fourier transform and return the displacement, frequencies, and amplitudes
     x = np.fft.ifft(fft_x)
-    return x, freq_fold, amplitude_fold
+    return x.real, freq_fold, amplitude_fold
