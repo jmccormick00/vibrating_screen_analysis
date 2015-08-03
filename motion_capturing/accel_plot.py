@@ -29,7 +29,7 @@ def main():
     # Compute the time vector
     t = np.arange(0.0, 0.2, Ts, dtype=float)
 
-    calc_x, freq, ffta = integrate(a, Ts)
+    calc_x, calc_v, freq, ffta = integrate(a, Ts)
 
     plt.subplot(3,1,1)
     plt.plot(t, a)
