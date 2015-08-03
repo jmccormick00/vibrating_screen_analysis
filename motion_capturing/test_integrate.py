@@ -23,7 +23,8 @@ def main():
 
     plt.subplot(4, 1, 1)
     plt.plot(t, a)
-    plt.grid()
+    plt.grid(b=True, which='major')
+    plt.grid(b=True, which='minor')
     plt.xlabel("time (t)")
     plt.ylabel("Accel (m/s/s)")
     plt.subplot(4, 1, 2)
