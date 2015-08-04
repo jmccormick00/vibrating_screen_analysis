@@ -9,7 +9,7 @@ def integrate(acceleration, T):
     and performs a double integral on them to get displacement.
     It performs the integration by converting the time(t) vs acceleration data from
     time domain to frequency domain by utilizing a Fourier transform
-    In frequency domain a simplified form of displacement has the following form:
+    In frequency domain a simplified form of displacement looks like the following:
     x = A*sin(omega*t)    Taking the derivative of x yields velocity and acceleration
     v = omega*A*cos(omega*t)
     a = -(omega*omega)*A*sin(omega*t)
@@ -18,7 +18,7 @@ def integrate(acceleration, T):
     Once the division is performed, perform an inverse Fourier transform to get back time(t) vs displacement
     :param acceleration: acceleration vector
     :param T: T - the period, the sampling time (t1 + T = t2)
-    :return: the displacement vector, frequency vector, amplitude vector
+    :return: the displacement vector, velocity, frequency vector, amplitude vector
     """
 
     # First - Take the Fourier transform
@@ -41,7 +41,7 @@ def integrate(acceleration, T):
     # Fourth - calculate omega
     w = 2*np.pi*freq
     if w[0] == 0:
-        w[0] = 0.00001  # make sure the first value isnt zero
+        w[0] = 0.00001  # make sure the first value isn't zero
     # solve for displacement and velocity
     fft_v = fft_a / (w*complex(0.0, 1.0))
     fft_x = fft_a / (-w*w)
