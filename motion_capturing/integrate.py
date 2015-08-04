@@ -6,7 +6,7 @@ import numpy as np
 def integrate(acceleration, T):
     """
     Takes an array of acceleration values recorded at equally spaced time intervals
-    and performs a double integral on them to get displacement.
+    and performs a double integral on them to get displacement.  The acceleration has to be sinusoidal.
     It performs the integration by converting the time(t) vs acceleration data from
     time domain to frequency domain by utilizing a Fourier transform
     In frequency domain a simplified form of displacement looks like the following:
