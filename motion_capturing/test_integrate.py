@@ -18,7 +18,7 @@ def main():
 
     x = 2.0*np.cos(omega1*t) + np.sin(omega2*t)
     v = -2.0*omega1*np.sin(omega1*t) + omega2*np.cos(omega2*t)
-    a = -(omega1*omega1)*2*np.cos(omega1*t) - (omega2*omega2)*np.sin(omega2*t)
+    a = -(omega1*omega1)*2*np.cos(omega1*t) - (omega2*omega2)*np.sin(omega2*t) + (5e3)*np.random.random(size=t.shape)
     calc_x, calc_v, freq, ffta = integrate(a, Ts)
 
     plt.subplot(4, 1, 1)
