@@ -46,34 +46,30 @@ class CounterWeight:
 class Screen:
     def __init__(self, weight, momentInertia):
 
-        self.mass=weight/32.17405 # slugs
-        self.weight=weight
+        self.mass = weight/32.17405 # slugs
+        self.weight = weight
         #self.alpha=np.deg2rad(alpha) # Body angle, radians
-        self.momentInertia=momentInertia
+        self.momentInertia = momentInertia
         #self.feedSpringPos=feedSpringPos
         #self.dischargeSpringPos=dischargeSpringPos
         #self.feedSpringStiff=feedSpringStiff
         #self.dischargeSpringStiff=dischargeSpringStiff
 
-        self.cwArr=[]
+        self.cwArr = []
 
     def addCounterWeight(self, cw):
         self.cwArr.append(cw)
 
     def calculate_acceleration(self, t):
-        Theta0=0.0
-        rx=ry=0.0
-        mrx=mry=0.0
+        sx = np.zeros(shape=t.shape)
+        sy = np.zeros(shape=t.shape)
         for cw in self.cwArr:
-            cw.calculateForces(t)
-            rx += cw.fx
-            ry += cw.fy
-            mrx += cw.fx*cw.posY
-            mry += cw.fy*cw.posX
+            cw.calculate_forces(t)
+            sx += cw.fx
+            sy += cw.fy
 
-
-        ddX0 = (rx-(2*self.Sfax*Dfx)-(2*self.Sdax*Ddx))/self.mass
-        ddY0 = (ry-(2*self.Sfay*Dfy)-(2*self.Sday*Ddy))/self.mass
+        ddX0 = sx/self.mass
+        ddY0 = sy/self.mass
         #ddTheta0=(mry+mrx+(-self.dischargeSpringPos[1]*2*self.Sdax*Ddx)+(self.dischargeSpringPos[0]*2*self.Sday*Ddy)-(self.feedSpringPos[1]*2*self.Sfax*Dfx)+(self.feedSpringPos[0]*2*self.Sfay*Dfy))/self.momentInertia
 
         return ddX0, ddY0
